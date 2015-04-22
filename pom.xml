@@ -13,7 +13,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 <repositories>
 <repository>
 <id>dita-tools-mvn-repo</id>
-<url>https://raw.github.com/greenelk/dita-tools/travis/downloads</url>
+<url>https://raw.github.com/greenelk/dita-tools/mvn-repo</url>
 <snapshots>
 <enabled>true</enabled>
 <updatePolicy>always</updatePolicy>
@@ -86,7 +86,7 @@ internal.repo::default::file://${project.build.directory}/mvn-repo
 <configuration>
 <message>Maven artifacts for ${project.version}</message>
 <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
-<branch>refs/heads/travis</branch>
+<branch>refs/heads/mvn-repo</branch>
 <includes>
 <include>**/*</include>
 </includes>

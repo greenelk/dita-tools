@@ -7,7 +7,7 @@ package org.greenelk.ditatools;
 public class LinkCheck {
 
 	public static void main(String[] args) {
-		System.out.println("LinkCheck coming soon...");
+		System.out.println("LinkCheck coming soon..");
 	}
 
 }
