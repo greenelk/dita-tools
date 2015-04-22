@@ -4,7 +4,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 
 <groupId>org.greenelk</groupId>
 <artifactId>org.greenelk.ditatools</artifactId>
-<version>0.11</version>
+<version>0.11-SNAPSHOT</version>
 <packaging>jar</packaging>
 
 <name>GreenElk DITA Tools</name>
@@ -13,7 +13,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 <repositories>
 <repository>
 <id>dita-tools-mvn-repo</id>
-<url>https://raw.github.com/greenelk/dita-tools/mvn-repo</url>
+<url>https://raw.github.com/greenelk/dita-tools/downloads</url>
 <snapshots>
 <enabled>true</enabled>
 <updatePolicy>always</updatePolicy>
@@ -52,6 +52,33 @@ internal.repo::default::file://${project.build.directory}/mvn-repo
 </configuration>
 </plugin>
 
+
+<plugin>
+<groupId>com.github.github</groupId>
+<artifactId>site-maven-plugin</artifactId>
+<version>0.11</version>
+<configuration>
+<message>Maven artifacts for ${project.version}</message>
+<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+<branch>refs/heads/downloads</branch>
+<includes>
+<include>**/*.jar</include>
+</includes>
+<repositoryName>dita-tools</repositoryName>
+<repositoryOwner>greenelk</repositoryOwner>
+<server>github</server>
+</configuration>
+<executions>
+<execution>
+<goals>
+<goal>site</goal>
+</goals>
+<phase>deploy</phase>
+</execution>
+</executions>
+</plugin>
+
+<!--
 <plugin>
 <groupId>org.apache.maven.plugins</groupId>
 <artifactId>maven-source-plugin</artifactId>
@@ -78,31 +105,7 @@ internal.repo::default::file://${project.build.directory}/mvn-repo
 </execution>
 </executions>
 </plugin>
-
-<plugin>
-<groupId>com.github.github</groupId>
-<artifactId>site-maven-plugin</artifactId>
-<version>0.11</version>
-<configuration>
-<message>Maven artifacts for ${project.version}</message>
-<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
-<branch>refs/heads/mvn-repo</branch>
-<includes>
-<include>**/*.jar</include>
-</includes>
-<repositoryName>dita-tools</repositoryName>
-<repositoryOwner>greenelk</repositoryOwner>
-<server>github</server>
-</configuration>
-<executions>
-<execution>
-<goals>
-<goal>site</goal>
-</goals>
-<phase>deploy</phase>
-</execution>
-</executions>
-</plugin>
+-->
 
 </plugins>
 </build>
