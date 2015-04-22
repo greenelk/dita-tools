@@ -39,7 +39,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
    </repository>
 </distributionManagement>
 
-
+<build>
 <plugins>
 
 <plugin>
@@ -107,6 +107,6 @@ internal.repo::default::file://${project.build.directory}/mvn-repo
 </plugin>
 
 </plugins>
-
+</build>
 
 </project>
