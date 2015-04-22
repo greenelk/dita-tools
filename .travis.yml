@@ -1,5 +1,15 @@
-language: java
+before_install: "git clone -b travis `git config --get remote.origin.url` target/travis"
+script: "mvn deploy --settings target/travis/settings.xml"
 
+env:
+  global:
+    - secure: "Ek45P30Afr3Nu5Ch023PG5EQ7/0PMuVpEbix5sFODldDhyDKrMCgeSb8Wd+UvVurZU8jNGh2I2YInk4xKMCXapHhkC5Lql/tiMdOfSk0Nob7z/rcT9a/k+xkJeTQoGr/fyBaxwlQNyNj+DEPJVglix7d3LjRkEHdWWdAjsGCQUc="
+    - secure: "vewxxG/W/LUfwKGf8RNUwBKymEtwLK9ax1NI9Xl2HOlK8A/CaP7+yEqg1y19Jw2tsFYaif0Tkf0Fl6F92JBlAmpBn49LZsAqWIkHsw+88vkIFKKQ6QPDUShGI1LsPA+tD+2cHO/k2ENV502avX5xflHi9xc3sSewVZ6wTR0vcDA="
+    
 branches:
   except:
     - travis
+
+language: java
+
+ 
