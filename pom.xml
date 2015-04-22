@@ -3,7 +3,7 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 <modelVersion>4.0.0</modelVersion>
 
 <groupId>org.greenelk</groupId>
-<artifactId>dita-tools</artifactId>
+<artifactId>org.greenelk.ditatools</artifactId>
 <version>1.0-SNAPSHOT</version>
 <packaging>jar</packaging>
 
@@ -88,12 +88,12 @@ internal.repo::default::file://${project.build.directory}/mvn-repo
 <noJekyll>true</noJekyll>
 <outputDirectory>${project.build.directory}/mvn-repo
 </outputDirectory>
-<branch>refs/heads/mvn-repo</branch>
+<branch>refs/heads/travis</branch>
 <includes>
 <include>**/*</include>
 </includes>
-<repositoryName>pengyifan-commons</repositoryName>
-<repositoryOwner>yfpeng</repositoryOwner>
+<repositoryName>dita-tools</repositoryName>
+<repositoryOwner>greenelk</repositoryOwner>
 <server>github</server>
 </configuration>
 <executions>
