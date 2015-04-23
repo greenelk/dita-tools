@@ -12,6 +12,4 @@ branches:
 
 language: java
 
-jdk:
-   - openjdk6
  
