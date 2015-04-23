@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Dita-tools : ">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Dita-tools</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/greenelk/dita-tools">View on GitHub</a>
+
+          <h1 id="project_title">Dita-tools</h1>
+          <h2 id="project_tagline"></h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/greenelk/dita-tools/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/greenelk/dita-tools/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="dita-tools-" class="anchor" href="#dita-tools-" aria-hidden="true"><span class="octicon octicon-link"></span></a>dita-tools <a href="http://travis-ci.org/greenelk/dita-tools"><img src="https://secure.travis-ci.org/greenelk/dita-tools.png?branch=master" alt="Build Status"></a>
+</h1>
+
+<p>The GREENELK DITA Tools Eclipse plugin provides some useful facilities for DITA authors and editors.
+To perform the available actions:</p>
+
+<h2>
+<a id="source--web-mapping" class="anchor" href="#source--web-mapping" aria-hidden="true"><span class="octicon octicon-link"></span></a>Source &lt;=&gt; web mapping</h2>
+
+<p>Tools that provide mapping between source files and their web equivalents.</p>
+
+<h3>
+<a id="source-file-finder" class="anchor" href="#source-file-finder" aria-hidden="true"><span class="octicon octicon-link"></span></a>Source file finder</h3>
+
+<p>
+If you are looking at your documentation on-line and you want to find where source for the web page, or image, is located in your workspace, just.
+</p><ul>
+<li>Display the page in your favourite web browser</li>
+<li>Copy the URL for the webpage, or image, to the clipboard</li>
+<li>Click on the  icon on your eclipse toolbar and the file (if found) will be located in all open navigation panels</li>
+</ul> 
+
+
+<h3>
+<a id="dita-web-file-finder" class="anchor" href="#dita-web-file-finder" aria-hidden="true"><span class="octicon octicon-link"></span></a>DITA Web file finder</h3>
+
+<p>
+Right click on one or more dita, htm, or html files in your source tree and look for the "DITA Web File Finder" action. After the preferences are set,
+ it will open up the equivalent file on a site it's been published to. You just have to supply one, or more, URL prefixes so the action 
+ knows how to construct the full URL. Examples of URL prefixes are:  
+</p><ul>
+<li>External URL - http://www.company.com/v123</li>
+<li>Internal URL for docs build output - http://intranet.company.com:9080/v124/index.jsp?topic=</li>
+</ul> 
+Clicking on this action will open up 3 web browser tabs with views on the respective webpages.
+<img src="images/wff.png">
+
+
+<h2>
+<a id="checking-tools" class="anchor" href="#checking-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Checking tools</h2>
+
+<ul>
+<li>Select a number of resources (projects, folders and files) in the Package Explorer or Project Explorer.</li>
+<li>Right click, and then select <b>DITA Tools</b>
+</li>
+</ul>
+
+<p></p>
+
+<h3>
+<a id="where-used-checker" class="anchor" href="#where-used-checker" aria-hidden="true"><span class="octicon octicon-link"></span></a>Where Used Checker</h3>
+
+<p>The selected <b>dita/jpg/gif/png files</b> files are checked to see if they are referred to by any other file in the workspace. 
+Informational, Warning, and Error markers are created and may be viewed in the <a href="./problemview.html">Problem view</a>.
+</p><ul>
+<li>Informational - jpg/gif/png file is referenced by at least one other file</li>
+<li>Informational - dita file is referenced by at least one file, which is a <b>ditamap</b>
+</li>
+<li>Error - dita file is referenced by at least one file, but no <b>ditamap</b>s</li>
+<li>Error - file is not referenced by any other file in the workspace</li>
+</ul>
+
+
+<p>The default is to scan <b>ditamap</b>, <b>dita</b>, <b>htm</b> and <b>html</b> filetypes, though 
+this may be configured through the Preferences page.</p> 
+<p>Note: As this needs to cross-reference the entire workspace it may take some time to complete, even if you've only selected a single file to check.</p> 
+
+###HREF Checker
+<p>Selected resources are scanned and an attempt is made to resolve all <b>href</b> attributes. Check is also made that a title exists for scope="peer" references.
+Informational, Warning, and Error markers are created and may be viewed in the <a href="./problemview.html">Problem view</a>.
+The default is to scan <b>ditamap</b>, <b>dita</b>, <b>htm</b> and <b>html</b> filetypes, though 
+this may be configured through the Preferences page. 
+</p>
+
+<h3>
+<a id="conref-checker" class="anchor" href="#conref-checker" aria-hidden="true"><span class="octicon octicon-link"></span></a>CONREF Checker</h3>
+
+<p>Selected resources are scanned and an attempt is made to resolve all <b>conref</b> attributes. 
+Informational, Warning, and Error markers are created and may be viewed in the <a href="./problemview.html">Problem view</a>.
+Only <b>dita</b> files are scanned. 
+</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Dita-tools maintained by <a href="https://github.com/greenelk">greenelk</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
