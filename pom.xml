@@ -7,11 +7,20 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 <version>0.11-SNAPSHOT</version>
 <packaging>jar</packaging>
 
-<name>GreenElk DITA Tools</name>
-<url>http://www.greenelk.org</url>
+<name>GREENELK DITA Tools</name>
+<url>http://greenelk.org</url>
 
 <repositories>
 <repository>
+<id>central</id>
+<url>http://repo1.maven.org/maven2/</url>
+</repository>
+<repository>
+<id>swt-repo</id>
+<url>https://swt-repo.googlecode.com/svn/repo/</url>
+</repository>
+<repository>
+
 <id>dita-tools-mvn-repo</id>
 <url>https://raw.github.com/greenelk/dita-tools/downloads</url>
 <snapshots>
@@ -22,12 +31,59 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
 </repositories>
 
 <dependencies>
+    <dependency>
+        <groupId>org.eclipse.swt</groupId>
+        <artifactId>org.eclipse.swt.win32.win32.x86_64</artifactId>
+        <version>4.4</version>
+    </dependency>
+<dependency>
+<groupId>org.mod4j.org.eclipse.core</groupId>
+<artifactId>resources</artifactId>
+<version>3.5.0</version>
+</dependency>
+<dependency>
+<groupId>org.mod4j.org.eclipse</groupId>
+<artifactId>swt</artifactId>
+<version>3.5.0</version>
+</dependency>
+<dependency>
+<groupId>org.mod4j.org.eclipse.ui</groupId>
+<artifactId>workbench</artifactId>
+<version>3.5.0</version>
+</dependency>
+<dependency>
+<groupId>org.mod4j.org.eclipse.ui</groupId>
+<artifactId>ide</artifactId>
+<version>3.5.0</version>
+<exclusions>
+            <exclusion>
+                <groupId>org.mod4j.org.eclipse.equinox.p2</groupId>
+                <artifactId>engine</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.mod4j.org.eclipse.equinox.p2</groupId>
+                <artifactId>metadata</artifactId>
+            </exclusion>
+            <exclusion>
+                <groupId>org.mod4j.org.eclipse.equinox.p2</groupId>
+                <artifactId>core</artifactId>
+            </exclusion>
+        </exclusions>
+</dependency>
+<dependency>
+<groupId>org.mod4j.org.eclipse.equinox</groupId>
+<artifactId>common</artifactId>
+<version>3.5.0</version>
+</dependency>
+<!--
 <dependency>
 <groupId>junit</groupId>
 <artifactId>junit</artifactId>
 <version>4.8.2</version>
 <scope>test</scope>
 </dependency>
+-->
+
 </dependencies>
 
 
@@ -77,6 +133,16 @@ internal.repo::default::file://${project.build.directory}/mvn-repo
 </execution>
 </executions>
 </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifestFile>src/main/resources/META-INF/MANIFEST.MF</manifestFile>
+          </archive>
+        </configuration>
+      </plugin>
 
 <!--
 <plugin>

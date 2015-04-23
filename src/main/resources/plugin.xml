@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+<!--
+     *********************************************
+     HELP PAGES
+     *********************************************
+-->
+<extension
+         point="org.eclipse.help.toc">
+      <toc
+            file="toc.xml"
+            primary="true">
+      </toc>
+      <toc
+            file="tocgettingstarted.xml">
+      </toc>
+   </extension>
+   
+<extension point="org.eclipse.help.contexts">
+   <contexts file="contextHelp.xml" />
+</extension> 
+
+<!--
+     *********************************************
+     PREFERENCES
+     *********************************************
+-->   
+<extension
+      point = "org.eclipse.ui.preferencePages">
+       <page id="org.greenelk.ditatools.generalpage"
+	    class="org.greenelk.ditatools.eclipse.GeneralPreferencePage"
+            name="%generalpage_name">
+       </page>
+   </extension>
+   <extension
+      point = "org.eclipse.ui.preferencePages">
+       <page id="org.greenelk.ditatools.hrefpage"
+       class="org.greenelk.ditatools.eclipse.HREFPreferencePage"
+        name="%href_page_name" 
+        category="org.greenelk.ditatools.generalpage" >
+       </page>
+   </extension>
+   <extension
+      point = "org.eclipse.ui.preferencePages">
+       <page id="org.greenelk.ditatools.wupage"
+       class="org.greenelk.ditatools.eclipse.WUPreferencePage"
+        name="%wu_page_name"
+        category="org.greenelk.ditatools.generalpage" >
+       </page>
+   </extension>
+   <extension
+      point = "org.eclipse.ui.preferencePages">
+      <page id="org.greenelk.ditatools.wffpage"
+      class="org.greenelk.ditatools.eclipse.WFFPreferencePage"
+         name="%wff_page_name" 
+         category="org.greenelk.ditatools.generalpage" >
+      </page>
+   </extension>
+
+<!--
+     *********************************************
+     PROBLEM MARKERS
+     *********************************************
+-->   
+   <extension
+      id="mymarker"
+      point="org.eclipse.core.resources.markers" />
+
+   <extension
+      id="filefinderproblem"
+      name="%file_finder_problem_type"
+      point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.core.resources.textmarker"/>
+      <super type="org.greenelk.ditatools.mymarker"/>
+      <persistent value="false" />
+      <attribute name="originalValue" />
+      <attribute name="replacementValue" />
+   </extension>
+   
+   <extension
+      id="hrefproblem"
+      name="%href_checker_problem_type"
+      point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.core.resources.textmarker"/>
+      <super type="org.greenelk.ditatools.mymarker"/>
+      <persistent value="false" />
+      <attribute name="originalValue" />
+      <attribute name="replacementValue" />
+   </extension>
+ 
+   <extension
+      id="conrefproblem"
+      name="%conref_checker_problem_type"
+      point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.core.resources.textmarker"/>
+      <super type="org.greenelk.ditatools.mymarker"/>
+      <persistent value="false" />
+   </extension>
+
+ 
+   <extension
+      id="whereusedproblem"
+      name="%whereused_checker_problem_type"
+      point="org.eclipse.core.resources.markers">
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.core.resources.textmarker"/>
+      <super type="org.greenelk.ditatools.mymarker"/>
+      <persistent value="false" />
+   </extension>
+ 
+   <extension
+	   point="org.eclipse.ui.ide.markerResolution">
+	   <markerResolutionGenerator markerType="org.greenelk.ditatools.hrefproblem"
+		class="org.greenelk.ditatools.eclipse.BadLinkMarkerCorrectionGenerator">
+	</markerResolutionGenerator>
+</extension>
+<!--
+     *********************************************
+     ACTIONS
+     *********************************************
+--> 
+  
+   <extension point="org.eclipse.ui.actionSets">
+      <actionSet
+         id="org.eclipse.ui.articles.action.contribution.set"
+         label="%tool_group"
+         visible="true">
+         <action
+            id="org.greenelk.ditatools.actions.action1" 
+            label="%file_finder_tool_name" 
+            icon="icons/internet.gif"
+            tooltip="%file_finder_tool_tip"
+            toolbarPath="Normal/additions"
+            class="org.greenelk.ditatools.actions.SourceFileFinderAction"> 
+         </action> 
+      </actionSet> 
+   </extension> 
+
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            objectClass="org.eclipse.core.resources.IResource"
+            id="org.greenelk.ditatools.contribution1">
+         <menu
+               label="%tool_group"
+               path="additions"
+               id="org.greenelk.ditatools.menu1">
+               <separator name="group1" />
+         </menu>
+         <action
+               label="%href_checker_tool_name"
+               helpContextId="org.greenelk.ditatools.generalcontexthelp"
+               class="org.greenelk.ditatools.actions.HREFChecker"
+               menubarPath="org.greenelk.ditatools.menu1/group1"
+               enablesFor="+"
+               id="org.greenelk.ditatools.newAction1">
+         </action>
+         <action
+               label="%conref_checker_tool_name"
+               helpContextId="org.greenelk.ditatools.generalcontexthelp"
+               class="org.greenelk.ditatools.actions.CONREFChecker"
+               menubarPath="org.greenelk.ditatools.menu1/group1"
+               enablesFor="+"
+               id="org.greenelk.ditatools.newAction2">
+         </action>
+         <action
+               label="%whereused_checker_tool_name"
+               helpContextId="org.greenelk.ditatools.generalcontexthelp"
+               class="org.greenelk.ditatools.actions.WhereUsedChecker"
+               menubarPath="org.greenelk.ditatools.menu1/group1"
+               enablesFor="+"
+               id="org.greenelk.ditatools.newAction3">
+         </action>
+      </objectContribution>
+   </extension>
+
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.ui.navigator.ProjectExplorer#PopupMenu?after=additions">
+         <dynamic            
+            class="org.greenelk.ditatools.actions.WebFileFinderAction"
+            id="org.greenelk.ditatools.actions.WebFileFinderAction.project">
+            <visibleWhen>
+               <with variable="selection">
+               <iterate ifEmpty="false" operator="and">
+                    <adapt type="org.eclipse.core.resources.IFile">
+	                <or>
+	                   <test property="org.eclipse.core.resources.extension" value="dita"/>
+	                   <test property="org.eclipse.core.resources.extension" value="html"/>
+	                   <test property="org.eclipse.core.resources.extension" value="htm"/>
+	                </or>
+	             </adapt>
+	            </iterate>
+
+               </with>
+            </visibleWhen>
+         </dynamic>
+      </menuContribution>
+   </extension>
+   
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.jdt.ui.PackageExplorer">
+         <dynamic            
+            class="org.greenelk.ditatools.actions.WebFileFinderAction"
+            id="org.greenelk.ditatools.actions.WebFileFinderAction.package">
+            <visibleWhen>
+               <with variable="selection">
+               <iterate ifEmpty="false" operator="and">
+                    <adapt type="org.eclipse.core.resources.IFile">
+	                <or>
+	                   <test property="org.eclipse.core.resources.extension" value="dita"/>
+	                   <test property="org.eclipse.core.resources.extension" value="html"/>
+	                   <test property="org.eclipse.core.resources.extension" value="htm"/>
+	                </or>
+	             </adapt>
+	            </iterate>
+
+               </with>
+            </visibleWhen>
+         </dynamic>
+      </menuContribution>
+   </extension>
+      
+   <extension point="org.eclipse.ui.menus">
+      <menuContribution locationURI="popup:org.eclipse.ui.views.ResourceNavigator">
+         <dynamic            
+            class="org.greenelk.ditatools.actions.WebFileFinderAction"
+            id="org.greenelk.ditatools.actions.WebFileFinderAction.resource">
+            <visibleWhen>
+               <with variable="selection">
+               <iterate ifEmpty="false" operator="and">
+                    <adapt type="org.eclipse.core.resources.IFile">
+	                <or>
+	                   <test property="org.eclipse.core.resources.extension" value="dita"/>
+	                   <test property="org.eclipse.core.resources.extension" value="html"/>
+	                   <test property="org.eclipse.core.resources.extension" value="htm"/>
+	                </or>
+	             </adapt>
+	            </iterate>
+
+               </with>
+            </visibleWhen>
+         </dynamic>
+      </menuContribution>
+   </extension>
+</plugin>

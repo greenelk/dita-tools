@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<contexts>
+    <context id="org.greenelk.ditatools.generalcontexthelp">
+        <description>DITA Tools provides content checks for Authored content.</description>
+        <topic href="help/html/overview.html" label="DITA Tools help" />
+    </context>
+</contexts> 
