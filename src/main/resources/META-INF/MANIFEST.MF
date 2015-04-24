@@ -1,10 +1,10 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: GREENELK DITA Tools
+Bundle-Name: DITA Tools
 Bundle-SymbolicName: org.greenelk.ditatools;singleton:=true
-Bundle-Version: 0.11
+Bundle-Version: 1.0.0
 Bundle-Activator: org.greenelk.ditatools.eclipse.DITAToolsPlugin
-Bundle-Vendor: GREENELK.ORG
+Bundle-Vendor: greenelk.org
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
