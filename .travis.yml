@@ -11,8 +11,7 @@ branches:
     - travis
 
 language: java
-
-
+    
 jdk:    
     - openjdk6
  
