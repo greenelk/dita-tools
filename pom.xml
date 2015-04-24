@@ -114,9 +114,10 @@ internal.repo::default::file://${project.build.directory}/mvn-repo
 <artifactId>site-maven-plugin</artifactId>
 <version>0.11</version>
 <configuration>
-<message>Maven artifacts for ${project.version}</message>
+<message>${project.name} plugin - ${project.version}</message>
 <outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
 <branch>refs/heads/downloads</branch>
+<merge>true</merge>
 <includes>
 <include>**/*.jar</include>
 </includes>
