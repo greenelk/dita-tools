@@ -3,7 +3,11 @@
 The DITA Tools Eclipse plugin provides some useful facilities for DITA authors and editors.
 To perform the available actions:
 
-##Checking tools
+## Quick start
+
+Link to the the plugin download, installation and build instructions can be found on the [dita-tools wiki](https://github.com/greenelk/dita-tools/wiki)
+
+## Checking tools
 
  - Select some resources (projects, folders and files) in the Package Explorer or Project Explorer.
  - Right click, and then select **DITA Tools** 
